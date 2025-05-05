@@ -1,0 +1,15 @@
+name: Перевірка норм кодування SQL
+
+on: [push]
+
+jobs:
+  sql-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Встановлення SQLFluff
+      run: pip install sqlfluff
+    - name: Перевірка SQL файлів
+      run: |
+        echo "Перевірка файлу SQL:"
+        sqlfluff lint 2-ПроектуванняПЗ/2.4-ДеталізованаСхемаДаних/RelationDB_DetailedDataSchema.sql --dialect postgres
