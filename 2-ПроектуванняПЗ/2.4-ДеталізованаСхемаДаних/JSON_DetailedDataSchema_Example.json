@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Схема даних користувача",
+  "description": "Деталізований опис схеми даних у форматі JSON",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "description": "Унікальний ідентифікатор користувача",
+      "type": "integer",
+      "minimum": 1
+    },
+    "ім_я": {
+      "description": "Ім'я користувача",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 50,
+      "pattern": "^[А-Яа-яЁёҐґІіЇїЄє\\s'-]+$"
+    },
+    "email": {
+      "description": "Електронна пошта",
+      "type": "string",
+      "format": "email",
+      "pattern": "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+    }
+  },
+  "required": ["user_id", "ім_я", "email"]
+}
